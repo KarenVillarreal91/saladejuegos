@@ -1,0 +1,55 @@
+<!--<h2>{{title}}</h2>
+<input type="button" (click)="mostrar()" value="{{title}}">
+<input type="text" [(ngModel)]="usuario.nombre">
+<input type="text" [(ngModel)]="usuario.clave">
+-----------------
+
+<div class="login">
+  <div class="login-triangle"></div>
+  
+  <h2 class="login-header">{{title}}</h2>
+  
+  <div class="login-container">
+    <p><input type="text" placeholder="Usuario" [(ngModel)]="usuario.nombre"></p>
+    <p><input type="password" placeholder="Clave" [(ngModel)]="usuario.clave"></p>
+    <p><input type="submit" value="Log in" (click)="mostrar()"></p>
+  </div>
+</div>
+<router-outlet></router-outlet>
+------------------
+
+<div class="login">
+  <div class="login-triangle"></div>
+  
+  <h2 class="login-header">{{title}}</h2>
+  
+  <div class="login-container">
+    <p><input type="text" name="edadUno" placeholder="Edad 1" [(ngModel)]="edadUno"></p>
+    <p><input type="text" name="edadDos" placeholder="Edad 2" [(ngModel)]="edadDos"></p>
+    <p><input type="submit" value="Calcular" (click)="mostrar()"></p>
+    <p>Suma<input type="text" [(ngModel)]="suma"></p>
+    <p>Promedio<input type="text" [(ngModel)]="promedio"></p>
+    <p><input type="reset" value="Limpiar"></p>
+  </div>
+</div>
+<router-outlet></router-outlet>
+-->
+
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Fixed navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="login">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<router-outlet></router-outlet>
