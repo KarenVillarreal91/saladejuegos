@@ -9,7 +9,8 @@ import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { JuegosComponent } from './components/juegos/juegos.component';
-import { FlagleComponent } from './components/flagle/flagle.component';
+import { QuiensoyComponent } from './components/quiensoy/quiensoy.component';
+import { LogleComponent } from './components/logle/logle.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FlagleComponent } from './components/flagle/flagle.component';
     ErrorComponent,
     RegistroComponent,
     JuegosComponent,
-    FlagleComponent
+    QuiensoyComponent,
+    LogleComponent
   ],
   imports: [
     BrowserModule,

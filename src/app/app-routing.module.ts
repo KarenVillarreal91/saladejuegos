@@ -6,14 +6,16 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { ErrorComponent } from './components/error/error.component';
 import { JuegosComponent } from './components/juegos/juegos.component';
-import { FlagleComponent } from './components/flagle/flagle.component';
+import { QuiensoyComponent } from './components/quiensoy/quiensoy.component';
+import { LogleComponent } from './components/logle/logle.component';
 
 const routes: Routes = [
   {path:"login", component:LoginComponent},
   {path:"registro", component:RegistroComponent},
   {path:"home", component:BienvenidoComponent},
+  {path:"quiensoy", component:QuiensoyComponent},
   {path:"juegos", component:JuegosComponent, children:[
-    {path:"flagle", component:FlagleComponent}
+    {path:"logle", component:LogleComponent}
   ]},
   {path:"", redirectTo:"/home",pathMatch:"full"},
   {path:"**", component:ErrorComponent}
