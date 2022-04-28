@@ -7,6 +7,20 @@ body {
   font-family: $fontAsap;
 }
 
+.inicioR {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.inicioR h4 {
+  color:white;
+  padding-bottom: 15px;
+}
+
+.nav-link{
+  display: contents;
+}
+
 .login {
   width: 400px;
   margin: 16px auto;
@@ -65,15 +79,16 @@ p{
   font-size: 0.95em;
 }
 
-.login input[type="text"],
+.login input[type="email"],
 .login input[type="password"] {
   background: #fff;
   border-color: #bbb;
   color: #555;
+  height: 45px;
 }
 
-/* Text fields' focus effect */
-.login input[type="text"]:focus,
+/* email fields' focus effect */
+.login input[type="email"]:focus,
 .login input[type="password"]:focus {
   border-color: #888;
 }

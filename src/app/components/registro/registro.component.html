@@ -1,1 +1,12 @@
-<p>registro works!</p>
+<div class="login">
+    <div class="login-triangle"></div>
+    
+    <h2 class="login-header">Registro</h2>
+
+    <div class="login-container">
+      <p><label>Correo electrónico</label><input class="form-control" type="email" [(ngModel)]="email"></p>
+      <p><label>Contraseña</label><input class="form-control" type="password" [(ngModel)]="clave"></p>
+      <p><input class="rounded" type="submit" (click)='Registro()' value="Continuar"></p>
+      <p>¿Ya posee una cuenta? <a class="nav-link" routerLink="../login">Login</a></p>
+    </div>
+</div>
