@@ -41,7 +41,8 @@ export class RegistroComponent implements OnInit {
       colorChat: this.GenerarColor(),
       puntajeMayorMenor: 0,
       puntajeAhorcado: 0,
-      puntajePreguntados: 0
+      puntajePreguntados: 0,
+      puntajeLogle: 0
     }
 
     this.userService.Registro(usuario)

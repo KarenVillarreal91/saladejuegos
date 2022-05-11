@@ -46,6 +46,12 @@ export class MayoromenorComponent implements OnInit {
 
   SacarCarta()
   {
+    document.getElementById("puntos")?.classList.add("pulsate-fwd");
+    
+    setTimeout(() => {
+      document.getElementById("puntos")?.classList.remove("pulsate-fwd"); 
+    }, 1000);
+
     this.cartaAnterior = this.cartaRandom;
     this.cartaRandom = this.cartas[Math.floor(Math.random() * (47 - 0 + 1)) + 0];
     this.valorCartaAnterior = this.valorCartaActual;
@@ -67,6 +73,7 @@ export class MayoromenorComponent implements OnInit {
       if(this.valorCartaAnterior <= this.valorCartaActual)
       {
         this.puntos++;
+
         this.SacarCarta();
       }
       else

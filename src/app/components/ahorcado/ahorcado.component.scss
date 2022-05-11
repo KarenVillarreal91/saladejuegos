@@ -64,3 +64,11 @@
     margin-top: 42px; 
     margin-bottom: -116px;
   }
+
+//Animacion Puntos
+.pulsate-fwd {
+	-webkit-animation: pulsate-fwd 0.5s ease-in-out both;
+	        animation: pulsate-fwd 0.5s ease-in-out both;
+}
+
+@-webkit-keyframes pulsate-fwd{0%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(1.5);transform:scale(1.5)}100%{-webkit-transform:scale(1);transform:scale(1)}}@keyframes pulsate-fwd{0%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(1.5);transform:scale(1.5)}100%{-webkit-transform:scale(1);transform:scale(1)}}

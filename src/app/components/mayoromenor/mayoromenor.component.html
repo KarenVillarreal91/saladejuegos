@@ -6,6 +6,6 @@
         <button class="btn btn-danger btn-lg px-4 gap-3" style="margin-right: 95px; margin-left: 39px;" (click)="Menor()">Menor</button>
         <img width="250px" src="../../../assets/cartas/atras.png" *ngIf="!revelar">
         <img width="250px" class="flip-in-ver-left" *ngIf="revelar" src="../../../assets/cartas/{{this.cartaRandom}}">
-        <h3 style="text-align: center;">Puntos: {{this.puntos}}</h3>
+        <h3 style="text-align: center;"><img width="50px" id="puntos" src="../../../assets/puntos.png"> {{this.puntos}}</h3>
     </div>
 </div>

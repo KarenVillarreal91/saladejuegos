@@ -146,6 +146,12 @@ export class PreguntadosComponent implements OnInit {
     {
       this.correctas++;
       this.imagen = "correcto";
+
+      document.getElementById("puntos")?.classList.add("pulsate-fwd");
+    
+      setTimeout(() => {
+        document.getElementById("puntos")?.classList.remove("pulsate-fwd"); 
+      }, 1000);
     }
     else
     {

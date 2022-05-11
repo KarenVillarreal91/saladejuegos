@@ -88,9 +88,11 @@ export class AhorcadoComponent implements OnInit {
 
       if(this.fallos == 7)
       {
+        this.ActualizarPuntaje();
+
         Swal.fire({
           title: '¡Te quedaste sin vidas!',
-          html: "La palabra era '"+ this.palabraRandom +"'." + ".<br>Puntuación: " + this.puntaje + "<br>Mayor puntuación: " + this.usuario[0].puntajeAhorcado,
+          html: "La palabra era '"+ this.palabraRandom +"'." + "<br>Puntuación: " + this.puntaje + "<br>Mayor puntuación: " + this.usuario[0].puntajeAhorcado,
           icon: 'error',
           position: 'center',
           confirmButtonColor: '#4add87',
@@ -108,7 +110,6 @@ export class AhorcadoComponent implements OnInit {
           }
           else
           {
-            this.ActualizarPuntaje();
             this.router.navigateByUrl('home');
           }
         });
@@ -128,6 +129,12 @@ export class AhorcadoComponent implements OnInit {
     {
       this.puntaje++;
 
+      document.getElementById("puntos")?.classList.add("pulsate-fwd");
+
+      setTimeout(() => {
+        document.getElementById("puntos")?.classList.remove("pulsate-fwd"); 
+      }, 1000);
+      
       Swal.fire({
         title: '¡Ganaste!',
         text: "La palabra es '"+ this.palabraRandom +"'.",
