@@ -1,0 +1,23 @@
+<br><div class="container py-5 px-5 bg-dark rounded-3 shadow-lg text-white" style="max-width: 960px;">
+    <h2 class="pb-2 border-bottom">Chat</h2><br>
+    <div class="chat" id="chat">
+        <div *ngFor="let mensaje of this.mensajes" class="listado">
+            <div class="container-mensaje" *ngIf="mensaje.email != this.userService.userLogueado.email">
+                <p class="nombre" [ngStyle]="{'color':this.mensaje.color}">{{mensaje.email}}</p>
+                <p class="mensaje">{{mensaje.mensaje}}</p>
+                <p class="hora">{{mensaje.hora}}</p>
+            </div><br>
+            <div class="container-mensajePropio" *ngIf="mensaje.email == this.userService.userLogueado.email">
+                <p class="nombre" style="color:#52b1bb">Tú</p>
+                <p class="mensaje">{{mensaje.mensaje}}</p>
+                <p class="hora">{{mensaje.hora}}</p>
+            </div><br>
+        </div>
+    </div>
+    <div style="margin-top: 7px;">
+        <input class="form-control" type="text" style="max-width: 800px; display: inline-block;" placeholder="Mensaje" [(ngModel)]="mensaje">
+        <button type="button" style="margin-bottom: 4px; margin-left: 8px;" class="btn btn-light" (click)="Enviar()"><svg xmlns="http://www.w3.org/2000/svg" style="transform: rotate(45deg);" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+        </svg></button>
+    </div>
+</div>

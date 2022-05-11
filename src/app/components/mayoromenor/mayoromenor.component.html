@@ -1,0 +1,11 @@
+<br><div class="container py-5 px-5 bg-dark rounded-3 shadow-lg text-white" style="max-width: 1040px;">
+    <h2 class="pb-2 border-bottom">Mayor o Menor</h2>
+    <div style="margin-top: 70px;">
+        <img width="250px" src="../../../assets/cartas/{{this.cartaAnterior}}">
+        <button class="btn btn-success btn-lg px-4 gap-3" style="margin-left: 95px;" (click)="Mayor()">Mayor</button>
+        <button class="btn btn-danger btn-lg px-4 gap-3" style="margin-right: 95px; margin-left: 39px;" (click)="Menor()">Menor</button>
+        <img width="250px" src="../../../assets/cartas/atras.png" *ngIf="!revelar">
+        <img width="250px" class="flip-in-ver-left" *ngIf="revelar" src="../../../assets/cartas/{{this.cartaRandom}}">
+        <h3 style="text-align: center;">Puntos: {{this.puntos}}</h3>
+    </div>
+</div>

@@ -1,20 +1,64 @@
 <br>
 <div class="container py-5 px-5 bg-dark rounded-3 shadow-lg text-white">
     <h2 class="pb-2 border-bottom">Juegos</h2>
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-    <div class="col d-flex align-items-start">
-        <div class="icon-square bg-secondary text-dark flex-shrink-0 me-3">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-joystick text-dark" viewBox="0 0 16 16">
-                <path d="M10 2a2 2 0 0 1-1.5 1.937v5.087c.863.083 1.5.377 1.5.726 0 .414-.895.75-2 .75s-2-.336-2-.75c0-.35.637-.643 1.5-.726V3.937A2 2 0 1 1 10 2z"/>
-                <path d="M0 9.665v1.717a1 1 0 0 0 .553.894l6.553 3.277a2 2 0 0 0 1.788 0l6.553-3.277a1 1 0 0 0 .553-.894V9.665c0-.1-.06-.19-.152-.23L9.5 6.715v.993l5.227 2.178a.125.125 0 0 1 .001.23l-5.94 2.546a2 2 0 0 1-1.576 0l-5.94-2.546a.125.125 0 0 1 .001-.23L6.5 7.708l-.013-.988L.152 9.435a.25.25 0 0 0-.152.23z"/>
-            </svg>
+    <div class="row g-4 py-5 row-cols-1">
+        <div class="col align-items-start items">
+            <div class="lista">
+                <div class="icon-square bg-secondary text-dark flex-shrink-0 me-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-joystick text-dark" viewBox="0 0 16 16">
+                        <path d="M10 2a2 2 0 0 1-1.5 1.937v5.087c.863.083 1.5.377 1.5.726 0 .414-.895.75-2 .75s-2-.336-2-.75c0-.35.637-.643 1.5-.726V3.937A2 2 0 1 1 10 2z"/>
+                        <path d="M0 9.665v1.717a1 1 0 0 0 .553.894l6.553 3.277a2 2 0 0 0 1.788 0l6.553-3.277a1 1 0 0 0 .553-.894V9.665c0-.1-.06-.19-.152-.23L9.5 6.715v.993l5.227 2.178a.125.125 0 0 1 .001.23l-5.94 2.546a2 2 0 0 1-1.576 0l-5.94-2.546a.125.125 0 0 1 .001-.23L6.5 7.708l-.013-.988L.152 9.435a.25.25 0 0 0-.152.23z"/>
+                    </svg>
+                </div>
+                <div style="display: inherit;">
+                    <h2>Logle</h2>
+                    <p style="width: 200px;">Con un total de 3 intentos, intenta adivinar de que empresa se trata mediante un fragmento de su logo.
+                        Cada vez que se falle 1 intento se va a revelar otra parte del logo.</p>
+                    <button type="button" class="btn btn-success btn-lg px-4 gap-3" routerLink="../juegos/logle">Jugar</button>
+                </div>
+            </div>
+            
+            <div class="lista">
+                <div class="icon-square bg-secondary text-dark flex-shrink-0 me-3" style="margin-left: 10px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-puzzle-fill" viewBox="0 0 16 16">
+                        <path d="M3.112 3.645A1.5 1.5 0 0 1 4.605 2H7a.5.5 0 0 1 .5.5v.382c0 .696-.497 1.182-.872 1.469a.459.459 0 0 0-.115.118.113.113 0 0 0-.012.025L6.5 4.5v.003l.003.01c.004.01.014.028.036.053a.86.86 0 0 0 .27.194C7.09 4.9 7.51 5 8 5c.492 0 .912-.1 1.19-.24a.86.86 0 0 0 .271-.194.213.213 0 0 0 .036-.054l.003-.01v-.008a.112.112 0 0 0-.012-.025.459.459 0 0 0-.115-.118c-.375-.287-.872-.773-.872-1.469V2.5A.5.5 0 0 1 9 2h2.395a1.5 1.5 0 0 1 1.493 1.645L12.645 6.5h.237c.195 0 .42-.147.675-.48.21-.274.528-.52.943-.52.568 0 .947.447 1.154.862C15.877 6.807 16 7.387 16 8s-.123 1.193-.346 1.638c-.207.415-.586.862-1.154.862-.415 0-.733-.246-.943-.52-.255-.333-.48-.48-.675-.48h-.237l.243 2.855A1.5 1.5 0 0 1 11.395 14H9a.5.5 0 0 1-.5-.5v-.382c0-.696.497-1.182.872-1.469a.459.459 0 0 0 .115-.118.113.113 0 0 0 .012-.025L9.5 11.5v-.003l-.003-.01a.214.214 0 0 0-.036-.053.859.859 0 0 0-.27-.194C8.91 11.1 8.49 11 8 11c-.491 0-.912.1-1.19.24a.859.859 0 0 0-.271.194.214.214 0 0 0-.036.054l-.003.01v.002l.001.006a.113.113 0 0 0 .012.025c.016.027.05.068.115.118.375.287.872.773.872 1.469v.382a.5.5 0 0 1-.5.5H4.605a1.5 1.5 0 0 1-1.493-1.645L3.356 9.5h-.238c-.195 0-.42.147-.675.48-.21.274-.528.52-.943.52-.568 0-.947-.447-1.154-.862C.123 9.193 0 8.613 0 8s.123-1.193.346-1.638C.553 5.947.932 5.5 1.5 5.5c.415 0 .733.246.943.52.255.333.48.48.675.48h.238l-.244-2.855z"/>
+                    </svg>
+                </div>
+                <div style="display: inherit;">
+                    <h2>Ahorcado</h2>
+                    <p style="width: 200px;">Clásico juego de adivinar una palabra a partir de la cantidad de letras representado en líneas.
+                    Por cada letra que se elija y no esté en la palabra se agrega una extremidad representado las vidas (6 en total).</p>
+                    <button type="button" class="btn btn-success btn-lg px-4 gap-3" routerLink="../juegos/ahorcado">Jugar</button>
+                </div>
+            </div>
+
+            <div class="lista">
+                <div class="icon-square bg-secondary text-dark flex-shrink-0 me-3" style="margin-left: 10px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"/>
+                    </svg>
+                </div>
+                <div style="display: inherit;">
+                    <h2 style="width: 230px;">Mayor o Menor</h2>
+                    <p style="width: 200px;">Desde un mazo de cartas, el juegador va intentar adivinar si la siguiente carta es mayor o menor a la anterior.
+                    El jugador acumula 1 punto por cada carta adivinada.</p>
+                    <button type="button" class="btn btn-success btn-lg px-4 gap-3" routerLink="../juegos/mayoromenor">Jugar</button>
+                </div>
+            </div>
+            
+            <div class="lista">
+                <div class="icon-square bg-secondary text-dark flex-shrink-0 me-3" style="margin-left: 20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-question-lg" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4.475 5.458c-.284 0-.514-.237-.47-.517C4.28 3.24 5.576 2 7.825 2c2.25 0 3.767 1.36 3.767 3.215 0 1.344-.665 2.288-1.79 2.973-1.1.659-1.414 1.118-1.414 2.01v.03a.5.5 0 0 1-.5.5h-.77a.5.5 0 0 1-.5-.495l-.003-.2c-.043-1.221.477-2.001 1.645-2.712 1.03-.632 1.397-1.135 1.397-2.028 0-.979-.758-1.698-1.926-1.698-1.009 0-1.71.529-1.938 1.402-.066.254-.278.461-.54.461h-.777ZM7.496 14c.622 0 1.095-.474 1.095-1.09 0-.618-.473-1.092-1.095-1.092-.606 0-1.087.474-1.087 1.091S6.89 14 7.496 14Z"/>
+                    </svg>
+                </div>
+                <div style="display: inherit;">
+                    <h2>Preguntados</h2>
+                    <p style="width: 200px;">El jugador se va enfrentar a diferentes preguntas de multiple choice según la temática que le toque. 
+                    Con la oportunidad de fallar 3 veces, se sumará 1 punto por cada respunta correcta.</p>
+                    <button type="button" class="btn btn-success btn-lg px-4 gap-3" routerLink="../juegos/preguntados">Jugar</button>
+                </div>
+            </div>
         </div>
-        <div>
-            <h2>Logle</h2>
-            <p>Con un total de 5 intentos, intenta adivinar de que empresa se trata mediante un fragmento de su logo.
-                Cada vez que se falle 1 intento se va a revelar otra parte del logo.</p>
-            <button type="button" class="btn btn-success btn-lg px-4 gap-3" routerLink="../juegos/logle">Jugar</button>
-        </div>
-    </div>
     </div>
 </div>

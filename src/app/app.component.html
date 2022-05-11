@@ -9,9 +9,12 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" routerLink="quiensoy">Quién soy</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="chat">Chat</a>
+          </li>
         </ul>
         <div class="text-end" style="padding-right: 20px;">
-          <h5 style="color:white;">{{this.userService.userLogueado.email}}</h5>
+          <h5 style="color:white;">{{this.userService.userLogueado?.email}}</h5>
         </div>
         <div class="text-end">
           <button type="button" class="btn btn-outline-danger me-2" (click)="LogOut()">Log Out</button>

@@ -1,9 +1,9 @@
 <div class="py-5 d-flex gap-5 justify-content-center text-center">
     <div class="py-5 px-5 bg-dark rounded-3 shadow-lg position-static" style="max-width: 1000px;">
-        <img class="rounded d-block mx-auto mb-4" src="../assets/foto.jpeg" alt="" width="200" height="215">
-        <h1 class="text-light display-5 fw-bold"><em>Karen Villarreal</em></h1>
+        <img class="rounded d-block mx-auto mb-4" [src]="this.perfil?.avatar_url" alt="" width="200" height="200">
+        <h1 class="text-light display-5 fw-bold"><em>{{this.perfil?.name}}</em></h1>
         <div class="col-lg-6 mx-auto">
-            <p class="text-light lead mb-4"><br><b>Logle</b><br>Con un total de 5 intentos, intenta adivinar de que empresa se trata mediante un fragmento de su logo.
+            <p class="text-light lead mb-4"><br><b>Logle</b><br>Con un total de 3 intentos, intenta adivinar de que empresa se trata mediante un fragmento de su logo.
                 Cada vez que se falle 1 intento se va a revelar otra parte del logo.
             </p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">

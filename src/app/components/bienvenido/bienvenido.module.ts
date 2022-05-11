@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BienvenidoRoutingModule } from './bienvenido-routing.module';
 import { BienvenidoComponent } from './bienvenido.component';
 import { JuegosComponent } from '../juegos/juegos.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { JuegosComponent } from '../juegos/juegos.component';
   ],
   imports: [
     CommonModule,
-    BienvenidoRoutingModule
+    BienvenidoRoutingModule,
+    FormsModule
   ]
 })
 export class BienvenidoModule { }

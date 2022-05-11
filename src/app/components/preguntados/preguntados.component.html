@@ -1,0 +1,50 @@
+<br><div class="container py-5 px-5 bg-dark rounded-3 shadow-lg text-white" style="max-width: 1040px; min-height: 385px;">
+    <h2 class="pb-2 border-bottom">Preguntados <img *ngIf="this.categoria != ''" style="margin-left: 175px; margin-top: -20px;" width="50px" src="../../../assets/preguntados/{{this.categoria}}.gif"> {{this.categoria}}</h2>
+    <div *ngIf="this.preguntaRandom == ''">
+        <div style="display: contents;">
+            <img class="active" width="150px" style="margin-left: -7px;" src="../../../assets/preguntados/Historia.gif">
+            <button class="btn btn-outline-warning btn-lg px-4 gap-3 boton" style="margin-left: -134px;" (click)="ElegirPregunta('Historia')">Historia</button>
+        </div>
+        <div style="display: contents;">
+            <img class="active" width="120px" style="margin-left: 95px;" src="../../../assets/preguntados/Geografía.gif">
+            <button class="btn btn-outline-info btn-lg px-4 gap-3 boton" style="margin-left: -126px;" (click)="ElegirPregunta('Geografía')">Geografía</button>
+        </div>
+        <div style="display: contents;">
+            <img class="active" width="150px" style="margin-left: 70px;" src="../../../assets/preguntados/Ciencia.gif">
+            <button class="btn btn-outline-success btn-lg px-4 gap-3 boton" style="margin-left: -130px;" (click)="ElegirPregunta('Ciencia')">Ciencia</button>
+        </div>
+        <div style="display: contents;">
+            <img class="active" width="150px" style="margin-left: 59px;" src="../../../assets/preguntados/Cine.gif">
+            <button class="btn btn-outline-danger btn-lg px-4 gap-3 boton" style="margin-left: -120px;" (click)="ElegirPregunta('Cine')">Cine</button>
+        </div>
+        <div style="display: contents;">
+            <img class="active" width="150px" style="margin-left: 60px; margin-top: 60px;" src="../../../assets/preguntados/Random.gif">
+            <button class="btn btn-outline-light btn-lg px-4 gap-3 boton" style="margin-left: -131px;" (click)="ElegirPregunta('Random')">Al azar</button>
+        </div>
+    </div>
+
+    <div *ngIf="this.preguntaRandom != ''">
+        <div class="vidas">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+            </svg>
+            <h3>{{this.intentos}}</h3>
+        </div>
+        <h3 style="display: contents;">Puntos: {{this.correctas}}</h3>
+        <div style="text-align: center; margin-bottom: -60px; height: 100px;">
+            <img class="scale-in-center" width="350px" *ngIf="this.imagen == 'incorrecto'" src="../../../assets/preguntados/incorrecto.png">
+            <img class="scale-in-center" width="350px" *ngIf="this.imagen == 'correcto'" src="../../../assets/preguntados/correcto.png">
+        </div>
+        <div class="cartel">
+            <img width="100px" *ngIf="this.preguntaRandom.poster" [src]="this.preguntaRandom.poster">
+            <h3>{{this.preguntaRandom.pregunta}}</h3>
+            <h2>{{this.tiempo}}</h2>
+        </div>
+        <div class="respuesta">
+            <button class="btn btn-light btn-lg px-4 gap-3" id="{{this.preguntaRandom.respuestas[0]}}" (click)="Respuesta(this.preguntaRandom.respuestas[0])">{{this.preguntaRandom.respuestas[0]}}</button>
+            <button class="btn btn-light btn-lg px-4 gap-3" id="{{this.preguntaRandom.respuestas[1]}}" (click)="Respuesta(this.preguntaRandom.respuestas[1])">{{this.preguntaRandom.respuestas[1]}}</button>
+            <button class="btn btn-light btn-lg px-4 gap-3" id="{{this.preguntaRandom.respuestas[2]}}" (click)="Respuesta(this.preguntaRandom.respuestas[2])">{{this.preguntaRandom.respuestas[2]}}</button>
+            <button class="btn btn-light btn-lg px-4 gap-3" id="{{this.preguntaRandom.respuestas[3]}}" (click)="Respuesta(this.preguntaRandom.respuestas[3])">{{this.preguntaRandom.respuestas[3]}}</button>
+        </div>
+    </div>
+</div>

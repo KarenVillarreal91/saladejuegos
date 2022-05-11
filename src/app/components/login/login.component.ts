@@ -33,11 +33,11 @@ export class LoginComponent implements OnInit {
     .then((res:any)=>{
         this.userService.logueado = true;
         
-        this.userService.SubirLog(userLog)
-        .then(()=>{
-        }).catch(error=>{
-          console.log(error);
-        });
+        // this.userService.SubirLog(userLog)
+        // .then(()=>{
+        // }).catch(error=>{
+        //   console.log(error);
+        // });
 
         this.router.navigateByUrl('home');
     }).catch((error)=>{
@@ -124,5 +124,7 @@ export class LoginComponent implements OnInit {
   {
     this.email = email;
     this.clave = password;
+
+    this.Login();
   } 
 }

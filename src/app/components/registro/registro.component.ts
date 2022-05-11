@@ -21,6 +21,12 @@ export class RegistroComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  GenerarColor()
+  {
+    let randomColor = Math.floor(Math.random()*16777215).toString(16);
+    return "#" + randomColor;
+  }
+
   async Registro()
   {
     let date = new Date();
@@ -30,15 +36,20 @@ export class RegistroComponent implements OnInit {
       fecha: date.toLocaleString('es-ES',{dateStyle:'full'}) + ', ' + date.getHours() + ':' + date.getMinutes()
     }
 
+    let userRegistro = { 
+      email: this.email,
+      colorChat: this.GenerarColor(),
+      puntajeMayorMenor: 0,
+      puntajeAhorcado: 0,
+      puntajePreguntados: 0
+    }
+
     this.userService.Registro(usuario)
     .then((res:any)=>{
         this.userService.logueado = true;
         
-        this.userService.SubirLog(userLog)
-        .then(()=>{
-        }).catch(error=>{
-          console.log(error);
-        });
+        this.userService.SubirLog(userLog, 'logs');
+        this.userService.SubirLog(userRegistro,'registros');
 
         this.router.navigateByUrl('home');
     }).catch((error)=>{
