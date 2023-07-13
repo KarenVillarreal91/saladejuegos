@@ -1,34 +1,37 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&family=Rubik:wght@300;400&display=swap');
 
-$fontAsap: 'Asap', sans-serif;
+$fontAsap: 'Montserrat', sans-serif;
+
+.icon{
+  text-align: center;
+  top: 5%;
+  position: relative;
+}
 
 body {
   background: #456;
   font-family: $fontAsap;
 }
 
-.inicioR {
-  text-align: center;
-  padding-top: 30px;
-}
-
-.inicioR h4 {
-  color:white;
-  padding-bottom: 15px;
-}
-
 .nav-link{
   display: contents;
+  color: #60bdfb;
 }
 
 .login {
   width: 400px;
   margin: 16px auto;
   font-size: 16px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  z-index: 1;
+  transform: translate(-50%, -50%);
 }
 
 p{
   font-family: $fontAsap;
+  color: #999999;
 }
 
 /* Reset top and bottom margins from certain elements */
@@ -38,28 +41,23 @@ p{
   margin-bottom: 0;
 }
 
-/* The triangle form is achieved by a CSS hack */
-.login-triangle {
-  width: 0;
-  margin-right: auto;
-  margin-left: auto;
-  border: 12px solid transparent;
-  border-bottom-color: rgb(33, 37, 41);
-}
-
 .login-header {
-  background: rgb(33, 37, 41);
+  background: #00000067;
   padding: 20px;
   font-size: 1.4em;
   font-weight: normal;
   text-align: center;
   color: #fff;
   font-family: $fontAsap;
+  backdrop-filter: blur(3px);
 }
 
 .login-container {
-  background: #ebebeb;
+  background: #0000003b;
   padding: 12px;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+  backdrop-filter: blur(3px);
 }
 
 /* Every row inside .login-container is defined with p tags */
@@ -73,41 +71,46 @@ p{
   width: 100%;
   border-width: 1px;
   border-style: solid;
-  padding: 16px;
+  padding: 10px;
   outline: 0;
   font-family: $fontAsap;
   font-size: 0.95em;
 }
 
 .login input[type="email"],
-.login input[type="password"],
-.login input[type="text"] {
-  background: #fff;
-  border-color: #bbb;
-  color: #555;
+.login input[type="password"] {
+  background: #ffffff00;
+  color: #ffffff;
   height: 45px;
+  border: none;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-radius: 1px;
 }
 
 /* email fields' focus effect */
 .login input[type="email"]:focus,
-.login input[type="password"]:focus,
-.login input[type="text"]:focus {
+.login input[type="password"]:focus {
   border-color: #888;
 }
 
 .login input[type="submit"],
 .login input[type="reset"] {
     font-family: $fontAsap;
-  background: rgb(33, 37, 41);;
+  width: 50%;
+  font-weight: 600;
+  margin: auto;
+  background-image: linear-gradient(to right, #c081f9 0%, #b4deff 51%, #c081f9 100%);
   border-color: transparent;
-  color: #fff;
-  
-  cursor: pointer;
+  color: #000000;
+  margin-top: 15%;
+  transition: 0.5s;
+  background-size: 200% auto;
 }
 
 .login input[type="submit"]:hover,
 .login input[type="reset"]:hover {
-  background: rgb(67, 72, 77);;
+  background-position: right center;
 }
 
 /* Buttons' focus effect */
@@ -115,3 +118,11 @@ p{
 .login input[type="reset"]:active {
   border-color: rgb(255, 255, 255);;
 }
+
+.jello-vertical {
+	-webkit-animation: jello-vertical 1s infinite both;
+	        animation: jello-vertical 1s infinite both;
+}
+
+@-webkit-keyframes jello-vertical{0%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}30%{-webkit-transform:scale3d(.75,1.25,1);transform:scale3d(.75,1.25,1)}40%{-webkit-transform:scale3d(1.25,.75,1);transform:scale3d(1.25,.75,1)}50%{-webkit-transform:scale3d(.85,1.15,1);transform:scale3d(.85,1.15,1)}65%{-webkit-transform:scale3d(1.05,.95,1);transform:scale3d(1.05,.95,1)}75%{-webkit-transform:scale3d(.95,1.05,1);transform:scale3d(.95,1.05,1)}100%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}}@keyframes jello-vertical{0%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}30%{-webkit-transform:scale3d(.75,1.25,1);transform:scale3d(.75,1.25,1)}40%{-webkit-transform:scale3d(1.25,.75,1);transform:scale3d(1.25,.75,1)}50%{-webkit-transform:scale3d(.85,1.15,1);transform:scale3d(.85,1.15,1)}65%{-webkit-transform:scale3d(1.05,.95,1);transform:scale3d(1.05,.95,1)}75%{-webkit-transform:scale3d(.95,1.05,1);transform:scale3d(.95,1.05,1)}100%{-webkit-transform:scale3d(1,1,1);transform:scale3d(1,1,1)}}
+

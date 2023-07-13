@@ -5,7 +5,13 @@
   border-width: 1px 0;
   box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
 }
-  
+
+.container{
+  backdrop-filter: blur(6px);
+  background: #00000047;
+  max-width: 960px;
+}
+
 .bi {
   vertical-align: -.125em;
   fill: currentColor;
@@ -16,22 +22,35 @@
   margin-bottom: 6px;
 }
 
+.chatinput{
+  margin-top: 10px;
+}
+
+.chatinput input{
+  color: #e3e3e3;
+  background-color: #52525273;
+  border: var(--bs-border-width) solid #52525273;
+  width: 80%;
+  float: left;
+}
+
+.chatinput input::placeholder{
+  color: #929292;
+}
+
+.chatinput button{
+  color: white; 
+  border: 0px;
+  transition: color .15s ease-in-out;
+
+  :hover{
+    color: #7e7e7e;
+  }
+}
+
 .chat{
-  height: 500px; 
+  max-height: 435px; 
   overflow-y: overlay;
-}
-
-.chat::-webkit-scrollbar {
-  width: 12px;
-}
-
-.chat::-webkit-scrollbar-track {
-  border-radius: 10px;
-}
-
-.chat::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgb(255, 255, 255); 
 }
 
 .feature-icon {
@@ -47,18 +66,24 @@
 }
 
 .container-mensajePropio {
-  margin-left: 459px;
   padding: 10px;
-  background: #dadada2e;
+  background: #3e3e3e73;
   border-radius: 25px;
-  max-width: 390px;
+  border-top-right-radius: 0px;
+  min-width: 30%;
+  max-width: 90%;
+  position: sticky;
+  left: 100%;
+  margin-right: 5px;
 }
 
 .container-mensaje {
   padding: 10px;
-  background: #dadada52;
+  background: #4a4a4ae0;
   border-radius: 25px;
-  max-width: 390px;
+  border-top-left-radius: 0px;
+  min-width: 30%;
+  max-width: 90%;
 }
 
 .nombre{
@@ -67,14 +92,15 @@
 }
 
 .mensaje{
-  display: contents;
+  margin-bottom: 0;
+  word-wrap: break-word;
 }
 
 .hora{
-  display: table-cell; 
-  padding-left: 331px; 
-  color:#c7c7c7; 
-  font-size:13px;
+  float: right;
+  margin-bottom: 0;
+  color: #c7c7c7;
+  font-size: 13px;
 }
 
 .icon-link {

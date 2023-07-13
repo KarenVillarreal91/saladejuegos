@@ -6,6 +6,13 @@
     box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
   }
   
+  .container{
+    width: 70%;
+    min-width: 355px;
+    backdrop-filter: blur(6px);
+    background: #00000047;
+  }
+
   .bi {
     vertical-align: -.125em;
     fill: currentColor;
@@ -41,7 +48,6 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 3rem;
     height: 3rem;
     font-size: 1.5rem;
     border-radius: .75rem;
@@ -65,8 +71,48 @@
     margin-right: 50px;
   }
 
+  .card p{
+    min-height: 170px;
+  }
+
   .items{
     margin:auto;
     font-style: italic;
-    max-width: 1070px;
+    justify-content: center;
+  }
+
+  .card{
+    background-color: #fff0;
+    border: none;
+    margin-top: 40px;
+    color: white;
+    text-align: center;
+  }
+
+  .btn{
+    color: #000;
+    font-weight: 600;
+    transition: 0.5s;
+    background-size: 200% auto;
+    border-color: transparent;
+  }
+
+  .btn:hover{
+    background-position: right center;
+  }
+
+  .btn-logle{
+    background-image: linear-gradient(to right, #7dc9ff 0%, #e0f2ff 51%, #7dc9ff 100%);
+  }
+
+  .btn-ahorcado{
+    background-image: linear-gradient(to right, #e97dff 0%, #f9daff 51%, #e97dff 100%);
+  }
+
+  .btn-mayomen{
+    background-image: linear-gradient(to right, #7dff88 0%, #d8ffdb 51%, #7dff88 100%);
+  }
+
+  .btn-preguntados{
+    background-image: linear-gradient(to right, #ff7d88 0%, #ffd2d5 51%, #ff7d88 100%);
   }

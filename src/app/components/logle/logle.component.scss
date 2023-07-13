@@ -16,7 +16,28 @@
     margin-top: 20px;
     margin-bottom: -12px;
     margin-right: 12px;
-    margin-left: 200px;
+    margin-left: 5%;
+}
+
+.logo{
+    display: block;
+    height: 250px;
+}
+
+.logo .logocont{
+    max-width: 250px; 
+    margin: auto;
+    position: relative;
+}
+
+.logo img{
+    position: absolute;
+    right: 0;
+}
+
+.container{
+    backdrop-filter: blur(6px);
+    background: #00000047;
 }
 
 h5{

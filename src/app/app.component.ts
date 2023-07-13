@@ -21,4 +21,22 @@ export class AppComponent {
       this.router.navigateByUrl('login');
     });
   }
+  
+  abrirChat()
+  {
+    document.getElementById("chat")?.removeAttribute("hidden");
+    setTimeout(() => {
+      document.getElementById("chat")?.classList.add("open");
+    }, 100);
+    document.getElementById("botonChat")?.setAttribute("hidden", '');
+  }
+
+  cerrarChat()
+  {
+    document.getElementById("chat")?.classList.remove("open");
+    setTimeout(() => {
+      document.getElementById("chat")?.setAttribute("hidden", '');
+      document.getElementById("botonChat")?.removeAttribute("hidden");
+    }, 500);
+  }
 }

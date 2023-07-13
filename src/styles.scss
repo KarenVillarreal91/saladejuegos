@@ -1,10 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&family=Rubik:wght@300;400&display=swap');
+
+$fontAsap: 'Montserrat', sans-serif;
+
 html
 {
     background-color: rgb(66, 66, 66);
 }
 
-body
+body, html
 {
-    background-color: rgb(66, 66, 66);
+    --background: none;
+    background: url("./assets/fondo.png");
+    background-size: cover;
+    background-position: center center;   
+    height: 100%;
+    font-family: $fontAsap;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111; 
+}
+ 
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(to top, #4d286e 0%, #2e5674 51%, #4d286e 100%);
+    border-radius: 30px;
+    transition: color .40s ease-in-out,background-color .40s ease-in-out;
 }

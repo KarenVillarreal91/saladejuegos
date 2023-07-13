@@ -47,12 +47,19 @@ export class RegistroComponent implements OnInit {
 
     this.userService.Registro(usuario)
     .then((res:any)=>{
-        this.userService.logueado = true;
-        
-        this.userService.SubirLog(userLog, 'logs');
-        this.userService.SubirLog(userRegistro,'registros');
 
-        this.router.navigateByUrl('home');
+        document.getElementById("icon")?.classList.add("jello-vertical");
+      
+        setTimeout(() => {
+          this.userService.logueado = true;
+        
+          this.userService.SubirLog(userLog, 'logs');
+          this.userService.SubirLog(userRegistro,'registros');
+
+          this.router.navigateByUrl('home');
+          document.getElementById("icon")?.classList.remove("jello-vertical");
+        }, 2000);
+        
     }).catch((error)=>{
       if(error.code == 'auth/email-already-in-use')
       {

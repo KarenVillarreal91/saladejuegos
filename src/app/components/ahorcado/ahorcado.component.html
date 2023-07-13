@@ -1,26 +1,27 @@
-<br><div class="container py-5 px-5 bg-dark rounded-3 shadow-lg text-white" style="max-width: 1040px;">
+<br><div class="container py-5 px-5 rounded-3 shadow-lg text-white" style="max-width: 1040px;">
     <h2 class="pb-2 border-bottom">Ahorcado</h2>
     <div class="text-end">
-    <button class="btn btn-warning btn-lg px-4 gap-3" (click)="Reiniciar()">Reiniciar</button>
-    <h3 class="puntos"><img width="50px" id="puntos" src="../../../assets/puntos.png"> {{this.puntaje}}</h3><br>
+        <button class="btn btn-warning btn-lg px-4 gap-3" (click)="Reiniciar()">Reiniciar</button>
     </div>
-    <img width="500px" src="../../../assets/ahorcado/fase{{this.fallos}}.png">
+
+    <h3 class="puntos"><img width="50px" id="puntos" src="../../../assets/puntos.png"> {{this.puntaje}}</h3><br>
+    <img style="max-width: 50%; min-width: 295px; margin: 20px;" src="../../../assets/ahorcado/fase{{this.fallos}}.png">
     
     <div style="display: inline-flex;">
         <h2 style="display: inline-flex; margin-right: 15px;" *ngFor="let letra of this.palabraFormada">{{letra}}</h2>
     </div>
 
 
-    <div style="margin: auto;max-width: 680px;">
+    <div style="margin: auto; text-align: center;">
         <h2 style="text-align:center;">{{this.letraElegida}}</h2>
 
-        <div style="margin: auto; max-width: 653px;">
+        <div style="margin: auto;">
             <button *ngFor="let letra of this.letrasFUno" type="button" class="btn btn-light btn-lg px-4 gap-3" style="margin-right: 3px;" id="{{letra}}" (click)="CambiarLetra(letra)">{{letra}}</button>
         </div>
-        <div style="margin: auto; max-width: 649px; margin-top: 3px;">
+        <div style="margin: auto; margin-top: 3px;">
             <button *ngFor="let letra of this.letrasFDos" type="button" class="btn btn-light btn-lg px-4 gap-3" style="margin-right: 3px;" id="{{letra}}" (click)="CambiarLetra(letra)">{{letra}}</button>
         </div>
-        <div style="margin: auto; max-width: 571px; margin-top: 3px;">
+        <div style="margin: auto; margin-top: 3px;">
             <button *ngFor="let letra of this.letrasFTres" type="button" class="btn btn-light btn-lg px-4 gap-3" style="margin-right: 3px;" id="{{letra}}" (click)="CambiarLetra(letra)">{{letra}}</button>
         </div>
     </div>

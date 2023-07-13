@@ -1,18 +1,22 @@
-<div class="login">
-    <div class="login-triangle"></div>
-    
-    <h2 class="login-header">Log in</h2>
 
-    <div class="login-container">
-      <p><label>Correo electrónico</label><input class="form-control" type="email" [(ngModel)]="email"></p>
-      <p><label>Contraseña</label><input class="form-control" type="password" [(ngModel)]="clave"></p>
-      <p><input class="rounded" type="submit" (click)='Login()' value="Continuar"></p>
-      <p>¿Necesitas una cuenta? <a class="nav-link" routerLink="../registro">Registrarse</a></p>
-    </div>
-
-    <div class="inicioR">
-      <h4>Inicio rápido</h4>
-      <button type="button" class="btn btn-outline-light" style="margin-right: 30px;" (click)='InicioAutomatico("tester@gmail.com","123asd")'>Tester</button>
-      <button type="button" class="btn btn-outline-light" (click)='InicioAutomatico("user@gmail.com","123asd")'>Usuario</button>
-    </div>
+<div class="icon">
+  <img src="../../../assets/icon.png" id="icon" height="100px">
 </div>
+
+<div class="login">
+  <h2 class="login-header">Iniciar sesión</h2>
+
+  <div class="login-container">
+    <p><label>Correo electrónico</label><input class="form-control" type="email" [(ngModel)]="email"></p>
+    <p><label>Contraseña</label><input class="form-control" type="password" [(ngModel)]="clave"></p>
+    <p><input class="rounded" type="submit" (click)='Login()' value="Ingresar"></p>
+    <p>¿Necesitas una cuenta? <a class="nav-link" routerLink="../registro">Registrarse</a></p>
+  </div>
+
+  <div class="inicioR">
+    <h4>Inicio rápido</h4>
+    <button type="button" class="btn btn-outline-light" style="margin-right: 30px;" (click)='InicioAutomatico("tester@gmail.com","123asd")'>Tester</button>
+    <button type="button" class="btn btn-outline-light" (click)='InicioAutomatico("user@gmail.com","123asd")'>Usuario</button>
+  </div>
+</div>
+

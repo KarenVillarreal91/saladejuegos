@@ -1,26 +1,38 @@
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <div class="container-fluid" *ngIf="this.userService.logueado">
-      <a class="navbar-brand" routerLink="home">Home</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-md navbar-dark" *ngIf="this.userService.logueado">
+    <div class="container-fluid">
+      <img class="navbar-home" src="../assets/icon.png" routerLink="home" height="40px">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navprincipal" aria-controls="navprincipal" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="collapse navbar-collapse" id="navprincipal">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="quiensoy">Quién soy</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="chat">Chat</a>
+            <a class="nav-link" aria-current="page" routerLink="quiensoy">Quién soy</a>
           </li>
         </ul>
         <div class="text-end" style="padding-right: 20px;">
-          <h5 style="color:white;">{{this.userService.userLogueado?.email}}</h5>
+          <h6 style="color:white; margin-bottom: 0;">{{this.userService.userLogueado?.email}}</h6>
         </div>
         <div class="text-end">
-          <button type="button" class="btn btn-outline-danger me-2" (click)="LogOut()">Log Out</button>
+          <button type="button" class="btn me-2" (click)="LogOut()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+              <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
   </nav>
 
+<button class="flotante btn btn-outline-light btn-chat" id="botonChat" (click)="abrirChat()"  *ngIf="this.userService.logueado">
+    <svg xmlns="http://www.w3.org/2000/svg" height="20" style="margin-bottom: 3px;" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
+      <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15z"/>
+    </svg> Chat
+</button>
+
+<div class="chat flotante" id="chat" hidden  *ngIf="this.userService.logueado">
+  <button class="btn btn-cerrar" (click)="cerrarChat()">X</button>
+  <app-chat></app-chat>
+</div>
 <router-outlet></router-outlet>

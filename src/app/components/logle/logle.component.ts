@@ -20,9 +20,11 @@ export class LogleComponent implements OnInit {
    "X", "C", "V", "B", "N", "M", "Enviar"];
 
   palabraFormada:string = "";
-  logos:Array<string> = ["PLAYSTATION", "LOGITECH", "APPLE", "STEAM", "MCDONALDS", "PEPSI", "DISCORD", "AIRBNB", "CARREFOUR"];
+  logos:any = [{"nombre":"PLAYSTATION", "mostrado": false}, {"nombre":"LOGITECH", "mostrado": false}, {"nombre":"APPLE", "mostrado": false}, 
+  {"nombre":"STEAM", "mostrado": false}, {"nombre":"MCDONALDS", "mostrado": false}, {"nombre":"PEPSI", "mostrado": false}, 
+   {"nombre":"DISCORD", "mostrado": false}, {"nombre":"AIRBNB", "mostrado": false}, {"nombre":"CARREFOUR", "mostrado": false}];
   palabras:Array<string> = [];
-  logoRandom:string = "";
+  logoRandom:any;
   fragmentosLogo:Array<string> = [];
   fragmentosMostrar:Array<string> = [];
   intento:number = 0;
@@ -42,15 +44,27 @@ export class LogleComponent implements OnInit {
 
   ElegirLogo()
   {
-    this.logoRandom = this.logos[Math.floor(Math.random() * (8 - 0 + 1)) + 0];
+    let index = Math.floor(Math.random() * (8 - 0 + 1)) + 0;
+    
+    this.logoRandom = this.logos[index];
 
-    for(let i = 1; i < 5; i++)
+    if(!this.logoRandom.mostrado)
     {
-      this.fragmentosLogo.push(`${this.logoRandom.toLowerCase()}.${i}.png`);
-      this.fragmentosMostrar.push('fondo.png');
-    }
+      this.logoRandom.mostrado = true;
+      this.logos[index] = this.logoRandom; 
 
-    this.fragmentosMostrar[0] = this.fragmentosLogo[0];
+      for(let i = 1; i < 5; i++)
+      {
+        this.fragmentosLogo.push(`${this.logoRandom.nombre.toLowerCase()}.${i}.png`);
+        this.fragmentosMostrar.push('fondo.png');
+      }
+
+      this.fragmentosMostrar[0] = this.fragmentosLogo[0];
+    }
+    else
+    {
+      this.ElegirLogo();
+    }
   }
 
   CambiarLetra(letra:string)
@@ -67,7 +81,7 @@ export class LogleComponent implements OnInit {
       }
       else
       {
-        if(this.logoRandom.length > this.palabraFormada.length && this.palabras.length != 3)
+        if(this.logoRandom.nombre.length > this.palabraFormada.length && this.palabras.length != 3)
         {
           this.palabraFormada += letra;
         }
@@ -78,12 +92,14 @@ export class LogleComponent implements OnInit {
   Enviar()
   {
     this.palabras.push(this.palabraFormada);
+
+    document.getElementById("Enviar")?.setAttribute("disabled", '');
     
     for(let i = 0; i < this.palabraFormada.length; i++)
     {
-      for(let j = 0; j < this.logoRandom.length; j++)
+      for(let j = 0; j < this.logoRandom.nombre.length; j++)
       {
-        if(this.palabraFormada[i] == this.logoRandom[j])
+        if(this.palabraFormada[i] == this.logoRandom.nombre[j])
         {
           document.getElementById(this.palabraFormada[i])?.style.setProperty('background-color', '#69d57b');
           document.getElementById(this.palabraFormada[i])?.style.setProperty('border-color', '#69d57b');
@@ -97,7 +113,7 @@ export class LogleComponent implements OnInit {
       }
     }
 
-    if(this.palabraFormada == this.logoRandom)
+    if(this.palabraFormada == this.logoRandom.nombre)
     {
       this.fragmentosMostrar = this.fragmentosLogo;
       document.getElementById("3")?.classList.add("flip-in-ver-left");
@@ -112,36 +128,74 @@ export class LogleComponent implements OnInit {
         document.getElementById("puntos")?.classList.remove("pulsate-fwd"); 
       }, 1000);
       
-      setTimeout(() => {
-        Swal.fire({
-          title: '¡Ganaste!',
-          text: "El logo de de '"+ this.logoRandom +"'.",
-          icon: 'success',
-          position: 'center',
-          confirmButtonColor: '#4add87',
-          confirmButtonText: 'Jugar otra vez',
-          showCancelButton: true,
-          cancelButtonColor: '#ca4949',
-          cancelButtonText: 'Volver al menú',
-          allowOutsideClick: false,
-          allowEscapeKey: false
-        }).then((result)=>{
-          if(result.isConfirmed)
-          {
-            this.ReiniciarJuego();
-          }
-          else
-          {
-            this.ActualizarPuntaje();
-            
-            Swal.fire({
-              title:"Puntuación: " + this.puntos + "<br>Mayor puntuación: " + this.usuario[0].puntajeLogle
-            })
-            
-            this.router.navigateByUrl('home');
-          }
-        });
-      }, 1500);
+      if(this.puntos != 9)
+      {
+        setTimeout(() => {
+          Swal.fire({
+            title: '¡Ganaste!',
+            text: "El logo es de '"+ this.logoRandom.nombre +"'.",
+            icon: 'success',
+            position: 'center',
+            confirmButtonColor: '#4add87',
+            confirmButtonText: 'Otro logo',
+            showCancelButton: true,
+            cancelButtonColor: '#ca4949',
+            cancelButtonText: 'Volver al menú',
+            allowOutsideClick: false,
+            allowEscapeKey: false
+          }).then((result)=>{
+            if(result.isConfirmed)
+            {
+              this.ReiniciarJuego();
+            }
+            else
+            {
+              this.ActualizarPuntaje();
+              
+              Swal.fire({
+                title:"Puntuación: " + this.puntos + "<br>Mayor puntuación: " + this.usuario[0].puntajeLogle
+              })
+              
+              this.router.navigateByUrl('home');
+            }
+          });
+        }, 1500);
+      }
+      else
+      {
+        setTimeout(() => {
+          Swal.fire({
+            title: '¡Felicitaciones!',
+            text: "Completaste el juego.",
+            icon: 'success',
+            position: 'center',
+            confirmButtonColor: '#4add87',
+            confirmButtonText: 'Jugar otra vez',
+            showCancelButton: true,
+            cancelButtonColor: '#ca4949',
+            cancelButtonText: 'Volver al menú',
+            allowOutsideClick: false,
+            allowEscapeKey: false
+          }).then((result)=>{
+            if(result.isConfirmed)
+            {
+              this.puntos = 0;
+              this.ReiniciarPalabras();
+              this.ReiniciarJuego();
+            }
+            else
+            {
+              this.ActualizarPuntaje();
+              
+              Swal.fire({
+                title:"Puntuación: " + this.puntos + "<br>Mayor puntuación: " + this.usuario[0].puntajeLogle
+              })
+              
+              this.router.navigateByUrl('home');
+            }
+          });
+        }, 500);
+      }
     }
     else
     {
@@ -150,7 +204,7 @@ export class LogleComponent implements OnInit {
       this.fragmentosMostrar[this.intento] = this.fragmentosLogo[this.intento];
       document.getElementById(this.intento.toString())?.classList.add("flip-in-ver-left");
       this.palabraFormada = '';
-      
+
       if(this.intento > 2)
       {
         this.ActualizarPuntaje();
@@ -158,7 +212,7 @@ export class LogleComponent implements OnInit {
         setTimeout(() => {
           Swal.fire({
             title: '¡Te quedaste sin intentos!',
-            html: "El logo era de '"+ this.logoRandom +"'<br>Puntuación: " + this.puntos + "<br>Mayor puntuación: "+ this.usuario[0].puntajeLogle,
+            html: "El logo era de '"+ this.logoRandom.nombre +"'<br>Puntuación: " + this.puntos + "<br>Mayor puntuación: "+ this.usuario[0].puntajeLogle,
             icon: 'error',
             position: 'center',
             confirmButtonColor: '#4add87',
@@ -172,6 +226,7 @@ export class LogleComponent implements OnInit {
             if(result.isConfirmed)
             {
               this.puntos = 0;
+              this.ReiniciarPalabras();
               this.ReiniciarJuego();
             }
             else
@@ -180,6 +235,10 @@ export class LogleComponent implements OnInit {
             }
           });
         }, 1500);
+      }
+      else
+      {
+        document.getElementById("Enviar")?.removeAttribute("disabled");
       }
     }
   }
@@ -199,6 +258,8 @@ export class LogleComponent implements OnInit {
       document.getElementById(i.toString())?.classList.remove("flip-in-ver-left");
     }
 
+    document.getElementById("Enviar")?.removeAttribute("disabled");
+
     this.palabraFormada = '';
     this.intento = 0;
     this.palabras = [];
@@ -214,6 +275,14 @@ export class LogleComponent implements OnInit {
     {
       this.usuario[0].puntajeLogle = this.puntos;
       this.userService.EditarRegistro(this.usuario[0].id,{"puntajeLogle":this.puntos});
+    }
+  }
+
+  ReiniciarPalabras()
+  {
+    for(let i = 0; i < 9; i++)
+    {
+      this.logos[i].mostrado = false;
     }
   }
 }

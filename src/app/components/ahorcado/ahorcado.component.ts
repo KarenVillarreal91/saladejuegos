@@ -19,17 +19,20 @@ export class AhorcadoComponent implements OnInit {
    letrasFTres:Array<string> = ["Z", 
    "X", "C", "V", "B", "N", "M", "Enviar"];
 
-  palabras:Array<string> = ["MANZANA", "ZAPATO", "ARBOL", "TECLADO",
+   palabras:Array<string> = ["MANZANA", "ZAPATO" ,"ARBOL", "TECLADO",
    "MONITOR", "CELULAR", "MICROFONO", "MUEBLE", "SILLA", "LAMPARA", 
    "CORTINA", "VENTANA", "EDIFICIO", "MARIPOSA", "PAJARO", "ZORRO", 
-   "PANDA", "JIRAFA", "ELEFANTE", "TIGRE", "LAGARTO"];
-
+   "PANDA", "JIRAFA", "ELEFANTE", "TIGRE", "LAGARTO", "VENTILADOR", 
+   "TERMO", "PELUCHE", "TRACTOR", "TELEFONO", "AERONAVE", "SUBMARINO", 
+   "PILETA", "MANDARINA", "MELON", "LECHUGA", "GASEOSA", "BICICLETA", "TELEVISOR"];
+  
   palabraRandom:string = "";
   letraElegida:string = "A";
   palabraFormada:Array<string> = [];
   fallos:number = 1;
   puntaje:number = 0;
   usuario:any;
+  palabrasUsadas:Array<string> = [];
 
   constructor(private router:Router, private userService:UserServiceService) { 
     this.CrearPalabra();
@@ -44,23 +47,63 @@ export class AhorcadoComponent implements OnInit {
   CrearPalabra()
   {
     this.palabraFormada = [];
-    this.palabraRandom = this.palabras[Math.floor(Math.random() * (20 - 0 + 1)) + 0];
+    this.palabraRandom = this.palabras[Math.floor(Math.random() * ((this.palabras.length - 1) - 0 + 1)) + 0];
 
     let letras = this.letrasFUno.concat(this.letrasFDos, this.letrasFTres);
 
-    for(let letra of letras)
+    if(this.palabrasUsadas.find(palabra => palabra == this.palabraRandom) == undefined)
     {
-      document.getElementById(letra)?.style.setProperty('background-color', '#f8f9fa');
-      document.getElementById(letra)?.style.setProperty('border-color', '#f8f9fa');
-    }
+      this.palabrasUsadas.push(this.palabraRandom);
 
-    for(let i = 0; i < this.palabraRandom.length; i ++)
+      for(let letra of letras)
+      {
+        document.getElementById(letra)?.style.setProperty('background-color', '#f8f9fa');
+        document.getElementById(letra)?.style.setProperty('border-color', '#f8f9fa');
+      }
+  
+      for(let i = 0; i < this.palabraRandom.length; i ++)
+      {
+        this.palabraFormada[i] = "_ "
+      }
+  
+      this.fallos = 1;
+    }
+    else
     {
-      this.palabraFormada[i] = "_ "
-    }
+      if(this.palabrasUsadas.length == this.palabras.length)
+      {
+        this.ActualizarPuntaje();
 
-    this.fallos = 1;
-    console.log(this.palabraRandom);
+        Swal.fire({
+          title: '¡Completaste el juego!',
+          html: "Puntuación: " + this.puntaje + "<br>Mayor puntuación: " + this.usuario[0].puntajeAhorcado,
+          icon: 'success',
+          position: 'center',
+          confirmButtonColor: '#4add87',
+          confirmButtonText: 'Jugar otra vez',
+          showCancelButton: true,
+          cancelButtonColor: '#ca4949',
+          cancelButtonText: 'Volver al menú',
+          allowOutsideClick: false,
+          allowEscapeKey: false
+        }).then((result)=>{
+          if(result.isConfirmed)
+          {
+            this.puntaje = 0;
+            this.palabrasUsadas = [];
+            this.CrearPalabra();
+          }
+          else
+          {
+            this.router.navigateByUrl('home');
+          }
+        });
+      }
+      else
+      {
+        this.CrearPalabra();
+      }
+    }
   }
 
   Enviar()
@@ -164,8 +207,6 @@ export class AhorcadoComponent implements OnInit {
         }
       });
     }
-
-    console.log(this.palabraFormada);
   }
 
   CambiarLetra(letra:string)
@@ -183,6 +224,7 @@ export class AhorcadoComponent implements OnInit {
   Reiniciar()
   {
     this.fallos = 6;
+    this.palabrasUsadas = [];
     this.letraElegida = "";
     this.Enviar();
   }

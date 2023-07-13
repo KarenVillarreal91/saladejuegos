@@ -1,27 +1,29 @@
-<br><div class="container py-5 px-5 bg-dark rounded-3 shadow-lg text-white" style="max-width: 1040px;">
+<br><div class="container py-5 px-5 rounded-3 shadow-lg text-white" style="max-width: 1040px;">
     <h2 class="pb-2 border-bottom">Logle</h2>
-    <h3 style="margin-top: 73px;"><img width="50px" id="puntos" src="../../../assets/puntos.png"> {{this.puntos}}</h3>
-    <div style="text-align: center; margin-top: -60px;">
-        <div style="max-width: 250px; margin: auto;">
-            <img width="250px" id="3" src="../../../assets/logle/{{this.fragmentosMostrar[3]}}">
-            <img width="250px" style="margin-top: -279px;" id="2" src="../../../assets/logle/{{this.fragmentosMostrar[2]}}">
-            <img width="250px" style="margin-top: -324px;" id="1" src="../../../assets/logle/{{this.fragmentosMostrar[1]}}">
-            <img width="250px" style="margin-top: -372px;" id="0" src="../../../assets/logle/{{this.fragmentosMostrar[0]}}">
+    <h3 style="margin-top: 5%; float: left;"><img width="50px" id="puntos" src="../../../assets/puntos.png"> {{this.puntos}}</h3>
+    <div style="text-align: center; margin-top: 5%;">
+        <div class="logo">
+            <div class="logocont">
+                <img width="250px" id="3" src="../../../assets/logle/{{this.fragmentosMostrar[3]}}">
+                <img width="250px" id="2" src="../../../assets/logle/{{this.fragmentosMostrar[2]}}">
+                <img width="250px" id="1" src="../../../assets/logle/{{this.fragmentosMostrar[1]}}">
+                <img width="250px" id="0" src="../../../assets/logle/{{this.fragmentosMostrar[0]}}">
+            </div>
         </div>
 
-        <div style="margin: auto;max-width: 680px; margin-top: -52px;">
+        <div style="margin: auto;">
             <div style="height: 130px;">
-                <div style="background-color: #4b5258; height: 35.34px; margin-bottom: 10px;" *ngFor="let palabra of this.palabras">
+                <div style="background-color: #00000075; height: 35.34px; margin-bottom: 10px;" *ngFor="let palabra of this.palabras">
                     <h2 style="text-align:center; display: contents;">{{this.palabra}}</h2>
                 </div>
             </div>
-            <div style="margin-top: 26px;">
-                <h2 style="text-align:center; display: contents;">{{this.palabraFormada}}</h2>
+            <div style="text-align:center;">
+                <h2 style="text-align:center; height: 40px;">{{this.palabraFormada}}</h2>
 
-                <div style="margin: auto; max-width: 653px;">
+                <div style="margin: auto;">
                     <button *ngFor="let letra of this.letrasFUno" type="button" class="btn btn-light btn-lg px-4 gap-3" style="margin-right: 3px;" id="{{letra}}" (click)="CambiarLetra(letra)">{{letra}}</button>
                 </div>
-                <div style="margin: auto; max-width: 649px; margin-top: 3px;">
+                <div style="margin: auto; margin-top: 3px;">
                     <button *ngFor="let letra of this.letrasFDos" type="button" class="btn btn-light btn-lg px-4 gap-3" style="margin-right: 3px;" id="{{letra}}" (click)="CambiarLetra(letra)">{{letra}}</button>
                 </div>
                 <div style="margin: auto; margin-top: 3px;">
@@ -30,8 +32,10 @@
             </div>
 
         </div>
-        <div class="verde"></div><h5>La letra está en el nombre.</h5>
-        <div class="gris"></div><h5>La letra NO está en el nombre.</h5>
+        <div style="margin: auto;">
+            <div class="verde"></div><h5>La letra está en el nombre.</h5>
+            <div class="gris"></div><h5>La letra NO está en el nombre.</h5>
+        </div>
     </div>
 </div>
     

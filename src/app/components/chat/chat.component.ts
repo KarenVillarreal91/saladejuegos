@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { UserServiceService } from 'src/app/services/user-service.service';
@@ -14,7 +15,7 @@ export class ChatComponent implements OnInit {
   div:any;
   usuarios:any;
 
-  constructor(public userService: UserServiceService) 
+  constructor(public userService: UserServiceService, public datepipe: DatePipe) 
   { 
     this.userService.mensajes.subscribe((data)=>{
       this.mensajes = data.sort((a,b)=> a.sort - b.sort);
@@ -25,9 +26,18 @@ export class ChatComponent implements OnInit {
     });
 
     setTimeout(() => {
-      this.div = document.getElementById("chat");
+      this.div = document.getElementById("listado");
       this.div.scrollTop = this.div.scrollHeight;
-    }, 200);
+
+      const node = document.getElementById("mensaje");
+  
+      node?.addEventListener("keyup", ({key}) =>{
+        if(key == "Enter")
+        {
+          this.Enviar();
+        }
+      });
+    }, 3000);
   }
 
   ngOnInit(): void {
@@ -35,14 +45,12 @@ export class ChatComponent implements OnInit {
 
   Enviar()
   {
-    let date = new Date();
-
     let usuarioColor = this.usuarios.filter((user:any)=>user.email == this.userService.userLogueado.email);
 
     let userMsg = { 
       email: this.userService.userLogueado.email,
       mensaje: this.mensaje,
-      hora: date.getHours() + ':' + date.getMinutes(),
+      hora: this.datepipe.transform((new Date), 'hh:mm'),
       color: usuarioColor[0].colorChat,
       sort: Date.now()
     }
@@ -50,7 +58,7 @@ export class ChatComponent implements OnInit {
     this.userService.MandarMensaje(userMsg);
     setTimeout(() => {
       this.div.scrollTop = this.div.scrollHeight;
-    }, 200);
+    }, 100);
 
     this.mensaje = "";
   }

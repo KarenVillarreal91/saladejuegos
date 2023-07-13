@@ -31,15 +31,21 @@ export class LoginComponent implements OnInit {
 
     this.userService.login(usuario)
     .then((res:any)=>{
-        this.userService.logueado = true;
-        
-        // this.userService.SubirLog(userLog)
-        // .then(()=>{
+      
+      // this.userService.SubirLog(userLog)
+      // .then(()=>{
         // }).catch(error=>{
-        //   console.log(error);
-        // });
-
+          //   console.log(error);
+          // });
+          
+      document.getElementById("icon")?.classList.add("jello-vertical");
+      
+      setTimeout(() => {
+        this.userService.logueado = true;
         this.router.navigateByUrl('home');
+        document.getElementById("icon")?.classList.remove("jello-vertical");
+      }, 2000);
+
     }).catch((error)=>{
       if(error.code == 'auth/wrong-password' || error.code == 'auth/user-not-found')
       {

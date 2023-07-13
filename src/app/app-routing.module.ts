@@ -14,7 +14,6 @@ const routes: Routes = [
   { path: 'home', loadChildren: () => import('./components/bienvenido/bienvenido.module').then(m => m.BienvenidoModule), canActivate: [UserGuard] },
   { path: 'juegos', loadChildren: () => import('./components/juegos/juegos.module').then(m => m.JuegosModule), canActivate: [UserGuard] },
   {path:"quiensoy", component:QuiensoyComponent, canActivate: [UserGuard]},
-  {path:"chat", component:ChatComponent, canActivate: [UserGuard]},
   {path:"", redirectTo:"/login",pathMatch:"full"},
   {path:"**", component:ErrorComponent}
 ];
